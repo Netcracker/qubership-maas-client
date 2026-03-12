@@ -16,8 +16,9 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.TopicPartition;
 import org.apache.kafka.common.header.internals.RecordHeader;
 import org.apache.kafka.common.serialization.StringSerializer;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.TestInfo;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.time.Duration;
@@ -54,14 +55,14 @@ abstract class AbstractKafkaClusterTest {
     Duration POLL_TIMEOUT = Duration.ofSeconds(30);
     Duration NO_RECORDS_TIMEOUT = Duration.ofSeconds(5);
 
-    KafkaContainerCluster cluster;
+    static KafkaContainerCluster cluster;
 
-    Admin admin;
-    String bootstrapServers;
-    Properties producerProps;
+    static Admin admin;
+    static String bootstrapServers;
+    static Properties producerProps;
 
-    @BeforeEach
-    void setupKafka() {
+    @BeforeAll
+    static void setupKafka() {
         cluster = new KafkaContainerCluster("7.4.0", brokers, replicationFactor, false);
         cluster.start();
         bootstrapServers = cluster.getBootstrapServers();
@@ -77,8 +78,8 @@ abstract class AbstractKafkaClusterTest {
                 VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName()));
     }
 
-    @AfterEach
-    void stopKafka() {
+    @AfterAll
+    static void stopKafka() {
         Optional.ofNullable(admin).ifPresent(Admin::close);
         cluster.stop();
     }
