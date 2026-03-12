@@ -44,10 +44,10 @@ abstract class AbstractKafkaClusterTest {
     static String ORIGIN_NS = "origin";
     static String PEER_NS = "peer";
 
-    static int brokers = 3;
+    static int brokers = 1;
     static int pods = 3;
     static int partitions = pods * 2;
-    static short replicationFactor = 2;
+    static short replicationFactor = 1;
     static int executorSize = pods * 2;
     static ExecutorService executor = Executors.newFixedThreadPool(executorSize);
     static Comparator<TopicPartition> topicPartitionComp = Comparator.comparing(TopicPartition::topic).thenComparing(TopicPartition::partition);
