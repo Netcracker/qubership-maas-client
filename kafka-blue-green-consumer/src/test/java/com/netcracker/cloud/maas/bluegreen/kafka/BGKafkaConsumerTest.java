@@ -65,7 +65,7 @@ class BGKafkaConsumerTest {
     private Duration POLL_TIMEOUT = Duration.ofSeconds(10);
 
     @Container
-    static KafkaContainer kafkaContainer = new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:7.4.0").asCompatibleSubstituteFor("apache/kafka"));
+    static KafkaContainer kafkaContainer = new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:7.4.0"));
 
     static Admin admin;
     static String bootstrapServers;

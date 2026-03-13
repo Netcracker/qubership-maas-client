@@ -52,7 +52,7 @@ class DefaultKafkaConsumerTest {
     static Properties producerProps;
 
     @Container
-    static KafkaContainer kafkaContainer = new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:7.4.0").asCompatibleSubstituteFor("apache/kafka"));
+    static KafkaContainer kafkaContainer = new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:7.4.0"));
 
     @BeforeAll
     static void setupKafka() {
