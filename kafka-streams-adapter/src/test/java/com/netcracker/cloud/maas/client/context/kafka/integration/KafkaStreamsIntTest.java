@@ -42,9 +42,9 @@ import org.junit.jupiter.api.TestInfo;
 import org.junit.jupiter.api.Timeout;
 import org.junitpioneer.jupiter.SetSystemProperty;
 import org.mockito.Mockito;
-import org.testcontainers.containers.KafkaContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
+import org.testcontainers.kafka.KafkaContainer;
 import org.testcontainers.utility.DockerImageName;
 
 import java.lang.reflect.Method;
@@ -64,8 +64,7 @@ class KafkaStreamsIntTest {
     static String APP_ID = "words.count.app";
 
     @Container
-    static KafkaContainer kafkaContainer = new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:7.4.0")
-            .asCompatibleSubstituteFor("confluentinc/cp-kafka")).withKraft();
+    static KafkaContainer kafkaContainer = new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:7.4.0"));
 
     static Admin admin;
     static String bootstrapServers;
