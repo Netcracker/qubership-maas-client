@@ -23,9 +23,9 @@
         <testcontainers.version>1.21.4</testcontainers.version>
         <blue-green-monitor.version>2.0.0</blue-green-monitor.version>
 
-        <kafka.version>4.1.1</kafka.version>
-        <jackson.core.version>2.20.2</jackson.core.version>
-        <jackson.annotations.version>2.20</jackson.annotations.version>
+        <kafka.version>4.1.2</kafka.version>
+        <jackson.core.version>2.21.2</jackson.core.version>
+        <jackson.annotations.version>2.21</jackson.annotations.version>
         <sonar.coverage.jacoco.xmlReportPaths>
             ${project.basedir}/../report-aggregate/target/site/jacoco-aggregate/jacoco.xml
         </sonar.coverage.jacoco.xmlReportPaths>
@@ -107,7 +107,7 @@
                             <path>
                                 <groupId>org.projectlombok</groupId>
                                 <artifactId>lombok</artifactId>
-                                <version>1.18.42</version>
+                                <version>1.18.46</version>
                             </path>
                         </annotationProcessorPaths>
                     </configuration>
