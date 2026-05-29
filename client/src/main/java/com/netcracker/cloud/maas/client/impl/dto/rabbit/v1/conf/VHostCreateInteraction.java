@@ -1,6 +1,0 @@
-package com.netcracker.cloud.maas.client.impl.dto.rabbit.v1.conf;
-
-import com.netcracker.cloud.maas.client.impl.dto.conf.ConfigureResponse;
-
-public class VHostCreateInteraction extends ConfigureResponse {
-}
